@@ -1,0 +1,53 @@
+PODS:
+  - CardParts (2.9.0):
+    - RxCocoa (~> 4.5)
+    - RxDataSources (~> 3.1)
+    - RxGesture (~> 2.2)
+    - RxSwift (~> 4.5)
+  - Cosmos (18.0.1)
+  - Differentiator (3.1.0)
+  - OHMySQL (2.1.3)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxGesture (2.2.0):
+    - RxCocoa (~> 4.5)
+    - RxSwift (~> 4.5)
+  - RxSwift (4.5.0)
+  - TwicketSegmentedControl (0.1.2)
+
+DEPENDENCIES:
+  - CardParts
+  - Cosmos
+  - OHMySQL
+  - TwicketSegmentedControl
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CardParts
+    - Cosmos
+    - Differentiator
+    - OHMySQL
+    - RxCocoa
+    - RxDataSources
+    - RxGesture
+    - RxSwift
+    - TwicketSegmentedControl
+
+SPEC CHECKSUMS:
+  CardParts: af85094284e032c7c3b76f4c79d4fb17b27c7878
+  Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  OHMySQL: 8bc54d2b8b9e1acfa0e652b18856a9cdbb24c431
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxGesture: c1b7bf17166b0ef9d642a9510f8bac5785f18990
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
+
+PODFILE CHECKSUM: f4dc49c616ce341013415e73ff48af30ccce20cd
+
+COCOAPODS: 1.5.2
