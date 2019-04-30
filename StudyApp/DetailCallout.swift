@@ -154,8 +154,7 @@ import UIKit
         Saver.saveInformation()
         //let connector = DBConnector()
         connector.sendMessage(type: "REQUEST", event: currentEvent, senderId: currentUser!.userid)
-        // connector.disconnected()
-        //
+
         joinButton.isHidden = true
         statusLabel.text = "Waiting for respones"
         //createAlert(message: "Please waiting for the response", title: "Your request have been sent")
@@ -183,7 +182,6 @@ import UIKit
     func setup(){
         view = loadNib()
         view.frame = bounds
-        //view.autoresizingMask = AutoresizingMask.flexibleWidth | AutoresizingMask.flexibleHeight
         addSubview(view)
     }
     func loadNib()-> UIView{

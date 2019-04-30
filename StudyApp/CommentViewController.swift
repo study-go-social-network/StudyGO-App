@@ -38,24 +38,7 @@ class CommentViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         studyTimerController.dismiss(animated: true, completion: nil)
     }
-//    @IBAction func first(_ sender: Any) {
-//        score = 1
-//    }
-//    @IBAction func second(_ sender: Any) {
-//        score = 2
-//    }
-//    @IBAction func third(_ sender: Any) {
-//        score = 3
-//    }
-//
-//    @IBAction func forth(_ sender: Any) {
-//        score = 4
-//    }
-//
-//    @IBAction func fifth(_ sender: Any) {
-//        score = 5
-//    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         rateView.didTouchCosmos = {rating in

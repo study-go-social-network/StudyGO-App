@@ -21,14 +21,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Saver.loadInformation()
-        //        if currentUser != nil {
-        //            print("666666666666666666666666666666666666")
-        //             performSegue(withIdentifier: "successfullLogin", sender: nil)
-        //            print("CNM")
-        //        }
-        
-        
-        
         // Do any additional setup after loading the view.
     }
     
@@ -52,15 +44,6 @@ class LoginViewController: UIViewController {
         if usernameInput?.text != nil && passwordInput?.text != nil {
             // let connector = DBConnector()
             if let value = connector.userAuthentication(username: usernameInput.text!, password: passwordInput.text!){
-                //                if value.userid != authenticatedId {
-                //                    currentUser = value
-                //                    authenticatedId = currentUser?.userid
-                //                    userStatus = 0
-                //                    eventInprogress = nil
-                //                    eventToJoin = nil
-                //                    Saver.saveInformation()
-                //                    performSegue(withIdentifier: "successfullLogin", sender: nil)
-                //                }
                 currentUser = value
                 // save context
                 // authenticatedId = currentUser?.userid
@@ -69,14 +52,23 @@ class LoginViewController: UIViewController {
                 
                 performSegue(withIdentifier: "successfullLogin", sender: nil)
             }else{
-                status.text = "Login failed"
+                createAlert(title: "Login failed", message: "Please check your information")
             }
             // connector.disconnected()
             
         }
         
     }
+    func createAlert(title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {(action) in
+            alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        self.present(alert,animated: true,completion: nil)
+    }
 }
+
 class Saver{
     public static func saveInformation(){
         //        print("Save Info")
@@ -118,6 +110,7 @@ class Saver{
         //        print(userStatus)
         //
     }
+   
     public static func loadUserState(userid:Int){
         if let event = connector.findEventToJoinByUserId(userid: userid){
             eventToJoin = event

@@ -39,6 +39,7 @@ class StudyTimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         messageView.isHidden = true
+    
         startTimer()
         
 
@@ -92,6 +93,7 @@ class StudyTimerViewController: UIViewController {
                 timer?.invalidate()
                 userStatus = UserState.free
                 Saver.saveInformation()
+                connector.removeEvent(eventid: (eventInprogress?.eventid!)!)
                 if !connector.checkPartnerAvaliable(eventid: eventInprogress!.eventid!){
                     performSegue(withIdentifier: "toComment", sender: self)
                 }else{

@@ -45,10 +45,10 @@ class StudyMapController: UIViewController, MKMapViewDelegate, CLLocationManager
         loadEventToMap()
         eventListener()
         instructionView.isHidden = true
-        print("salfjadslkfjaslfjslfsljsdkfjsfslkjsldkfjs")
+        
         print(userStatus)
         if userStatus == UserState.onEvent {
-            print("salfjadslkfjaslfjslfsljsdkfjsfslkjsldkfjs")
+            
             performSegue(withIdentifier: "joinStudy", sender: nil)
         }
         
@@ -80,10 +80,7 @@ class StudyMapController: UIViewController, MKMapViewDelegate, CLLocationManager
         }
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "events")
         if annotationView == nil {
-            
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "events")
-            // annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "events")
-            
             annotationView!.canShowCallout = true
         }else{
             annotationView!.annotation = annotation
@@ -239,43 +236,6 @@ extension StudyMapController{
             
             
         }
-        //        let distance = locationManager.location?.distance(from: CLLocation(latitude: Double(eventToJoin!.slat)!, longitude: Double(eventToJoin!.slng)!))
-        //        distanceLabel.text  = distance?.description
-        //        print(distance)
         
-        
-        //        let currentDate = Date(timeIntervalSinceNow: 1)
-        //
-        //        //        let currentDate = Date()
-        //
-        //        let dateFormatter = DateFormatter()
-        //
-        //
-        //        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        //        //"HH:mm:ss"
-        //        let currentTime = Date(timeInterval: dateFormatter.date(from: (eventInprogress?.dueTime)!)!.timeIntervalSinceNow, since: dateFormatter.date(from: (eventInprogress?.dueTime)!)!)
-        //
-        //        let now = dateFormatter.string(from: currentDate)
-        //        let date1 = dateFormatter.date(from: now)!
-        //        let date2 = dateFormatter.date(from: (eventInprogress?.dueTime)!)!
-        //        let diff = Int(date2.timeIntervalSince(date1))
-        //        let hours = diff/3600
-        //        let minutes = (diff-hours*3600)/60
-        //        let seconds = diff-hours*3600-minutes*60
-        //        print(dateFormatter.string(from: currentDate))
-        //        print(diff/3600)
-        //
-        
-        
-        //        if hours <= 0 {
-        //            if minutes <= 0 && seconds <= 0 {
-        //
-        //
-        //                timer?.invalidate()
-        //                userStatus = UserState.free
-        //                self.dismiss(animated: true, completion: nil)
-        //
-        //            }
-        //        }
     }
 }

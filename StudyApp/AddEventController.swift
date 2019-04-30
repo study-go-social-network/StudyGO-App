@@ -17,6 +17,8 @@ class AddEventController: UIViewController {
     @IBOutlet weak var locationDescription: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        timePicker.minimumDate = Date()
+        
         descriptionTextView.layer.borderColor = UIColor(displayP3Red: 204.0/255.0, green: 204.0/255, blue: 204.0/255, alpha: 1.0).cgColor
         descriptionTextView.layer.borderWidth = 1.0
         descriptionTextView.layer.cornerRadius = 5.0
@@ -37,12 +39,13 @@ class AddEventController: UIViewController {
         let result = dateFormatter.string(from: timePicker.date)
         
         if currentUser != nil{
-            if titleInputField.text == nil {
+            if titleInputField.text == "" || descriptionTextView.text! == ""{
+                createAlert(title: "Event adding failed", message: "Please complete your title or description")
                 return
             }
             if titleInputField.text != nil && descriptionTextView.text != nil {
                //let connector = DBConnector()
-                
+                print("Hount"+titleInputField.text!)
                 let newEvent = EventObject(holder: currentUser!, title: titleInputField.text!, dueTime: result, slat: (userLocationMonitor?.location?.coordinate.latitude.description)!, slng: (userLocationMonitor?.location?.coordinate.longitude.description)!, description: descriptionTextView.text)
                 if connector.insertEvent(event: newEvent) {
                     
@@ -71,5 +74,13 @@ class AddEventController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func createAlert(title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {(action) in
+            alert.dismiss(animated: true, completion: nil)
+   
+        }))
+        self.present(alert,animated: true,completion: nil)
+    }
 
 }

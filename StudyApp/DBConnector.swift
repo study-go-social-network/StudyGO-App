@@ -202,10 +202,11 @@ class DBConnector {
         }catch{
             //
         }
+        let query = OHMySQLQueryRequest(queryString: "select distinct * from event where userid = \(event.holder.userid) and title = '\(event.title)'")
         let validateQuery = OHMySQLQueryRequestFactory.select("event", condition:"userid = \(event.holder.userid) and title = '\(event.title)'")
         var result:[[String:Any]] = []
         do{
-            result = try context.executeQueryRequestAndFetchResult(validateQuery)
+            result = try context.executeQueryRequestAndFetchResult(query)
         }catch{
             
         }
